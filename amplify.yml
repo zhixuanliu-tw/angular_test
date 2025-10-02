@@ -1,0 +1,16 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: dist/angular_test/browser # <--- Check this line carefully
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
