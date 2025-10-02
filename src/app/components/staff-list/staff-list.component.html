@@ -1,0 +1,19 @@
+<div class="staff-container">
+  <h1>Random Staff Directory</h1>
+
+  <div *ngIf="isLoading; else staffContent" class="loading-spinner">
+    Loading staff members...
+  </div>
+
+  <ng-template #staffContent>
+    <div class="staff-cards">
+      <div *ngFor="let member of staff" class="staff-card">
+        <img [src]="member.picture.large" [alt]="member.name.first + ' picture'" class="staff-photo">
+        <h2>{{ member.name.first }} {{ member.name.last }}</h2>
+        <p><strong>Email:</strong> {{ member.email }}</p>
+        <p><strong>Phone:</strong> {{ member.phone }}</p>
+      </div>
+    </div>
+    <button (click)="loadStaff()">Load New Staff</button>
+  </ng-template>
+</div>
